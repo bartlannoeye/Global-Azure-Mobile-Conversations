@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ShoppingForms.Controls;assembly=ShoppingForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ShoppingForms.Views.MainPage"
+             Title="MainPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <controls:ChatListView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ItemsSource="{Binding Messages}">
+            <controls:ChatListView.ItemTemplate>
+                <DataTemplate>
+                    <controls:MessageViewCell>
+                        <!-- doesn't matter, replaced by custom renderer -->
+                        <Label Text="Pipo"></Label>
+                    </controls:MessageViewCell>
+                </DataTemplate>
+            </controls:ChatListView.ItemTemplate>
+        </controls:ChatListView>
+
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="10" Grid.Row="1">
+            <Entry Text="{Binding NewText, Mode=TwoWay}" />
+            <Button Command="{Binding SendMessageCommand}" Text="Send message" HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>
+    </Grid>
+</ContentPage>

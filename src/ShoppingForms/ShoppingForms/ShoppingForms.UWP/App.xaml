@@ -1,0 +1,61 @@
+﻿<Application
+    x:Class="ShoppingForms.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShoppingForms.UWP"
+    RequestedTheme="Light">
+    
+    <Application.Resources>
+        <DataTemplate x:Key="MessageDataTemplate">
+            <local:MessageDataTemplateSelector Content="{Binding BindingContext}">
+                <local:MessageDataTemplateSelector.MyMessageTemplate>
+                    <DataTemplate>
+                        <Grid Margin="30,10,-15,0" Width="450">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="8*" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Rectangle Fill="LightSkyBlue" Grid.RowSpan="2" Grid.Column="1"/>
+                            <TextBlock Text="{Binding Path=Text}" Margin="5" FontSize="26" TextWrapping="Wrap" Grid.Column="1" />
+                            <TextBlock Text="Me" FontWeight="Bold" FontSize="12" Margin="5,0,0,5" Foreground="Black" Grid.Row="1" Grid.Column="1"/>
+
+                            <Path Data="m 0,0 l 16,0 l 0,16 l -16,-16" 
+                                  Fill="LightSkyBlue"
+                                  Margin="0,-2,5,0" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </local:MessageDataTemplateSelector.MyMessageTemplate>
+                <local:MessageDataTemplateSelector.OpponentTemplate>
+                    <DataTemplate>
+                        <Grid Margin="5,10,30,0" Width="450">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Rectangle Fill="LightSteelBlue" Grid.Row="1" Grid.RowSpan="2"/>
+                            <TextBlock Text="{Binding Path=Text}" Margin="5" FontSize="26" Grid.Row="1" TextWrapping="Wrap" />
+                            <TextBlock Text="CuppaTea" FontWeight="Bold" FontSize="12" Margin="5,0,0,5" Foreground="Black" Grid.Row="2"/>
+
+                            <Path Data="m 0,0 l 0,16 l 16,0 l -16,-16"
+                                  Fill="LightSteelBlue"
+                                  Margin="5,0,0,-2" HorizontalAlignment="Left" Grid.Row="0"/>
+                        </Grid>
+                    </DataTemplate>
+                </local:MessageDataTemplateSelector.OpponentTemplate>
+            </local:MessageDataTemplateSelector>
+        </DataTemplate>
+    </Application.Resources>
+
+</Application>
