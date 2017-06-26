@@ -16,7 +16,7 @@ namespace ShoppingBot.Dialogs
     public class ShoppingDialog : LuisDialog<object>
     {
         private readonly List<string> _customerSupportKeywords =
-            new List<string> {"password", "cancel", "login", "log", "create"};
+            new List<string> {"password", "cancel", "login", "log", "create", "sign"};
 
         [LuisIntent("")]
         public async Task CatchAll(IDialogContext context, LuisResult result)
